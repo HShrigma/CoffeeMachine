@@ -1,3 +1,10 @@
-coffeemachine/CoffeeMachine.class
+coffeemachine/shoporderservice/OrderService.class
+coffeemachine/shoporderservice/CustomerService.class
+coffeemachine/shoporderservice/MilkSteamer.class
 coffeemachine/AppConfig.class
+coffeemachine/AppRunner.class
+coffeemachine/shoporderservice/OrderService$1.class
+coffeemachine/CoffeeMachine.class
+coffeemachine/helpers/OrderNameRegistry.class
 coffeemachine/Main.class
+coffeemachine/helpers/OrderNameRegistry$OrderTypes.class

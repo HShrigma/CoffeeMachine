@@ -1,3 +1,8 @@
 /mnt/Storage/VSCode/JavaProjects/CoffeeMachine/src/main/java/coffeemachine/Main.java
+/mnt/Storage/VSCode/JavaProjects/CoffeeMachine/src/main/java/coffeemachine/helpers/OrderNameRegistry.java
+/mnt/Storage/VSCode/JavaProjects/CoffeeMachine/src/main/java/coffeemachine/shoporderservice/MilkSteamer.java
+/mnt/Storage/VSCode/JavaProjects/CoffeeMachine/src/main/java/coffeemachine/shoporderservice/OrderService.java
+/mnt/Storage/VSCode/JavaProjects/CoffeeMachine/src/main/java/coffeemachine/AppRunner.java
 /mnt/Storage/VSCode/JavaProjects/CoffeeMachine/src/main/java/coffeemachine/CoffeeMachine.java
 /mnt/Storage/VSCode/JavaProjects/CoffeeMachine/src/main/java/coffeemachine/AppConfig.java
+/mnt/Storage/VSCode/JavaProjects/CoffeeMachine/src/main/java/coffeemachine/shoporderservice/CustomerService.java

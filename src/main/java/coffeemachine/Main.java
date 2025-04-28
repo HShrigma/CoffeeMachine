@@ -8,10 +8,9 @@ public class Main {
         // Start Spring Core - create IoC container
         ApplicationContext context = new AnnotationConfigApplicationContext(AppConfig.class);
 
-        CoffeeMachine machine = context.getBean(CoffeeMachine.class);
-
-        // Use it
-        machine.brew();
+        AppRunner application = context.getBean(AppRunner.class);
+        
+        application.RunApp();
 
         ((AnnotationConfigApplicationContext) context).close();
 
