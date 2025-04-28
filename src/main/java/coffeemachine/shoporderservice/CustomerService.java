@@ -10,7 +10,7 @@ import org.springframework.stereotype.Component;
 public class CustomerService {
     // Fields
     @Autowired
-    OrderService orderService;
+    public OrderService orderService;
     // Private methods
     String processCustomerOrder(String[] args) {
         String customer = args[0];
