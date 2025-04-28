@@ -1,16 +1,24 @@
 # CoffeeMachine ☕
 
-A fun toy project to learn Spring Core fundamentals including IoC container, dependency injection, and bean configuration.
+A Spring-powered coffee machine simulator demonstrating core Spring features and proper application architecture.
 
 ## Project Overview
 
-This project simulates a simple coffee machine using Spring Framework's core features. It's designed as a learning exercise for understanding:
+This project implements a complete coffee ordering system with:
 
+- Spring Dependency Injection
+- Component-based architecture
+- CLI interface
+- Comprehensive unit testing
+- Proper error handling
+
+Key concepts demonstrated:
 - Spring IoC container
-- Bean configuration
-- Dependency injection
-- Application context
-- Basic testing with JUnit 5
+- Annotation-based configuration (`@Component`, `@Autowired`)
+- Java-based configuration (`@Configuration`, `@Bean`)
+- Application context lifecycle
+- JUnit 5 testing
+- Dependency injection patterns
 
 ## Prerequisites
 
@@ -19,23 +27,28 @@ This project simulates a simple coffee machine using Spring Framework's core fea
 - Spring Framework 6.1.6
 
 ## Project Structure
-
-```bash
+``` bash
 coffeemachine/
 ├── src/
 │ ├── main/
 │ │ └── java/
 │ │ └── coffeemachine/
 │ │ ├── AppConfig.java # Spring configuration
-│ │ ├── CoffeeMachine.java # Main coffee machine logic
-│ │ └── Main.java # Entry point
+│ │ ├── AppRunner.java # CLI interface
+│ │ ├── CoffeeMachine.java # Brewing component
+│ │ ├── Main.java # Entry point
+│ │ ├── helpers/
+│ │ │ └── OrderNameRegistry.java # Order type management
+│ │ └── shoporderservice/
+│ │ ├── CustomerService.java # Order handling
+│ │ ├── MilkSteamer.java # Milk steaming
+│ │ └── OrderService.java # Order processing
 │ └── test/
 │ └── java/
 │ └── coffeemachine/
-│ └── CoffeeMachineTestSuite.java # Test cases
+│ └── CoffeeMachineTestSuite.java # Test cases (10 tests)
 └── pom.xml # Maven configuration
 ```
-
 
 ## Getting Started
 
@@ -43,37 +56,64 @@ coffeemachine/
    ```bash
    git clone https://github.com/yourusername/coffeemachine.git
    cd coffeemachine
+   ```
+2. Build the project
    ```bash
-2. Build the project:
-   ```bash 
-   mvn clean install 
+   mvn clean install
    ```
 3. Run the application:
-    ```bash 
-    mvn exec:java 
-    ```
+   ```bash
+      mvn exec:java
+   ```
 
-## Configuration
+## Features
 
-The Spring application context is configured in ```AppConfig.java``` using Java-based configuration.
+- Interactive command-line interface
+- Three coffee types: espresso, latte, cappuccino
+- Proper milk steaming for milk-based drinks
+- Comprehensive error handling
+- Unit test coverage for all components
+
+## Usage
+
+When running, enter orders in format:
+
+```bash
+<CustomerName> <OrderType>
+```
+
+Example:
+```bash
+John Latte
+```
 
 ## Testing
 
-Run tests with:
+Run the complete test suite:
+
 ```bash
 mvn test
 ```
+Test coverage includes:
+
+- Order type validation
+- Order processing
+- Customer service
+- Error cases
+- Enum conversion
 
 ## Dependencies
+
 - Spring Context 6.1.6
 - JUnit Jupiter 5.10.2
 
 ## Future Enhancements
-- Add different coffee types
-- Implement money handling
-- Add inventory management
-- Create a simple CLI interface
+
+- Payment processing
+- Inventory management
+- Temperature control
+- Custom drink options
+- Graphical interface
 
 ## License
-
-This project is licensed under the MIT License. 
+This project is licensed under the MIT License.
