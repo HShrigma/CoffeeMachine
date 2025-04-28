@@ -1,44 +1,47 @@
 package coffeemachine.shoporderservice;
 
-import coffeemachine.AppConfig;
+import java.util.ArrayList;
+import java.util.List;
 
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Component;
+
+@Component
 public class CustomerService {
     // Fields
+    @Autowired
     OrderService orderService;
-    AppConfig config;
-
-    // Constructor
-    public CustomerService(AppConfig config) {
-        this.config = config;
-        orderService = this.config.orderService();
-    }
-
-    // Endpoint
-    public void createOrder(String[] args) {
+    // Private methods
+    String processCustomerOrder(String[] args) {
         String customer = args[0];
         String order = args[1];
 
         System.out.printf("[LOG] New Order for customer %s!\n", customer);
-        try{
+        String res = "";
+        try {
             orderService.prepareOrder(order);
-        }
-        catch(Exception e){
-            System.err.println("[ERROR] an error occured preparing your order:");
+            res = "[LOG] Order Completed!";
+            return res;
+        } catch (Exception e) {
             e.printStackTrace();
-        }
-        finally{
-            System.out.println("[LOG] Order Completed!");
+            res = "[ERROR] an error occured preparing your order:";
+            return res;
         }
     }
 
-    // Testing void
-    public void placeOrderTest() {
-        String[] orders = new String[] { 
-            config.registry().espressoReg, 
-            config.registry().latteReg,
-            config.registry().cappucinoReg, "junkOrderForErrorTesting" };
-        for (String order : orders) {
-            createOrder(new String[] { "TestCustomer", order });            
+    // Endpoint
+
+    public void createOrder(String[] args) {
+        System.out.println(processCustomerOrder(args));
+    }
+
+    // Testing String
+    public List<String> placeOrderTest(String[] orders, String[] customers) {
+        List<String> res = new ArrayList<>();
+        for (int i = 0; i < orders.length; i++) {
+            String[] args = new String[] { customers[i], orders[i] };
+            res.add(processCustomerOrder(args));
         }
+        return res;
     }
 }

@@ -3,13 +3,17 @@ package coffeemachine;
 import java.util.Scanner;
 import java.util.regex.Pattern;
 
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Component;
+
+import coffeemachine.shoporderservice.CustomerService;
+
+@Component
 public class AppRunner {
-    AppConfig config;
-    public AppRunner(AppConfig config){
-        this.config = config;
-    }
-    public void RunApp() {
-        Scanner s = new Scanner(System.in);
+    @Autowired
+    CustomerService service;
+
+    void processCommands(Scanner s){
         String command = "";
         // Pattern: one or more non-space chars, space, one or more non-space chars
         Pattern orderPattern = Pattern.compile("^\\S+\\s\\S+$");
@@ -24,13 +28,19 @@ public class AppRunner {
             }
 
             if (orderPattern.matcher(command).matches()) {
-                config.customerService().createOrder(command.split(" "));
+                service.createOrder(command.split(" "));
             } else {
                 System.out.println("Invalid format! Please enter as: <CustomerName> <OrderName>");
                 System.out.println("Example: John latte");
             }
 
         } while (!command.equals("EXIT"));
+    }
+    
+    public void RunApp() {
+        Scanner s = new Scanner(System.in);
+
+        processCommands(s);
 
         System.out.println("Thank you for using our service!");
         s.close();

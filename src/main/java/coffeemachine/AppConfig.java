@@ -26,16 +26,16 @@ public class AppConfig {
 
     @Bean
     public OrderService orderService() {
-        return new OrderService(this);
+        return new OrderService();
     }
 
     @Bean
     CustomerService customerService() {
-        return new CustomerService(this);
+        return new CustomerService();
     }
 
     @Bean
     AppRunner appRunner() {
-        return new AppRunner(this);
+        return new AppRunner();
     }
 }
